@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 # TaskFlow – Dynamic Task Manager & Productivity Tracker
 
 A simple, interactive, and responsive task management application built with HTML, CSS, and JavaScript. TaskFlow helps users organize their daily tasks, track productivity, manage deadlines, and monitor completed work.
@@ -152,4 +149,3 @@ Through this project, I practised:
 - Add recurring tasks and calendar views.
 - Support data export and import.
 - Add user authentication and cloud synchronization.
->>>>>>> cba738e (Add TaskFlow dashboard screenshot)
