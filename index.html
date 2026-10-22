@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <title>TaskFlow — Make room for what matters</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="TaskFlow home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M8 16.5 13.2 22 24 10"/></svg></span><span>taskflow<span class="brand-dot">.</span></span></a>
+      <div class="topbar-note"><span class="live-dot"></span><span id="today-label">A little progress goes a long way</span></div>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div><p class="eyebrow">YOUR SPACE TO GET THINGS DONE</p><h1 id="page-title">Make room for <span>what matters.</span></h1><p class="hero-copy">A calmer way to keep track of everything on your plate.</p></div>
+      <div class="hero-art" aria-hidden="true"><span class="sparkle sparkle-one">✳</span><span class="hero-orbit"><span class="hero-check">✓</span></span><span class="sparkle sparkle-two">✦</span></div>
+    </section>
+
+    <section class="stats-grid" aria-label="Task overview">
+      <article class="stat-card stat-total"><div class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg></div><p class="stat-label">Total tasks</p><p class="stat-value" id="total-count">0</p><span class="stat-foot">All on your list</span></article>
+      <article class="stat-card stat-active"><div class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><p class="stat-label">In progress</p><p class="stat-value" id="active-count">0</p><span class="stat-foot">One step at a time</span></article>
+      <article class="stat-card stat-complete"><div class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></div><p class="stat-label">Completed</p><p class="stat-value" id="completed-count">0</p><span class="stat-foot">Look at you go!</span></article>
+    </section>
+
+    <section class="workspace">
+      <section class="panel add-panel" aria-labelledby="add-heading">
+        <div class="section-heading"><div><span class="heading-icon add-icon">＋</span><h2 id="add-heading">Add a task</h2></div><span class="heading-aside">Make it happen</span></div>
+        <form id="task-form" novalidate>
+          <label class="sr-only" for="task-title">Task title</label>
+          <div class="title-input-wrap"><span class="input-sparkle" aria-hidden="true">✦</span><input id="task-title" name="title" type="text" maxlength="160" placeholder="What needs to get done?" autocomplete="off" required></div>
+          <div class="form-bottom">
+            <div class="form-options">
+              <label class="select-wrap"><span class="sr-only">Category</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 13.4 12 22l-9-9V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1"/></svg><select id="task-category" name="category"><option>Work</option><option>Personal</option><option>Study</option><option>Other</option></select><span class="chevron">⌄</span></label>
+              <label class="date-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><input id="task-due" name="dueDate" type="date" aria-label="Due date (optional)"></label>
+            </div>
+            <button class="primary-button" type="submit"><span>Add task</span><span class="button-plus" aria-hidden="true">＋</span></button>
+          </div>
+          <p class="form-error" id="form-error" role="alert"></p>
+        </form>
+      </section>
+
+      <section class="panel progress-panel" aria-labelledby="progress-heading">
+        <div class="progress-top"><div><p class="progress-kicker">YOUR MOMENTUM</p><h2 id="progress-heading">Progress</h2></div><span class="progress-percent" id="progress-percent">0%</span></div>
+        <div class="progress-track" role="progressbar" aria-label="Tasks completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar"><span id="progress-fill"></span></div>
+        <p class="progress-caption" id="progress-caption">Add a task and get started.</p>
+        <div class="progress-decoration" aria-hidden="true">✳</div>
+      </section>
+    </section>
+
+    <section class="tasks-section" aria-labelledby="tasks-heading">
+      <div class="tasks-header"><div class="tasks-title"><div><p class="eyebrow">YOUR DAY, YOUR WAY</p><h2 id="tasks-heading">My tasks <span class="task-count-pill" id="visible-count">0</span></h2></div></div><label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg><input id="search-input" type="search" placeholder="Search your tasks..." aria-label="Search tasks"></label></div>
+      <div class="task-toolbar"><div class="filter-group" role="group" aria-label="Filter tasks"><button class="filter-button is-selected" data-filter="all" aria-pressed="true">All <span id="filter-all-count">0</span></button><button class="filter-button" data-filter="active" aria-pressed="false">Active <span id="filter-active-count">0</span></button><button class="filter-button" data-filter="completed" aria-pressed="false">Completed <span id="filter-completed-count">0</span></button></div><button class="clear-button" id="clear-completed" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2m3 0-1 14H6L5 6m4 4v6m6-6v6"/></svg>Clear completed</button></div>
+      <div class="task-list" id="task-list" aria-live="polite"></div>
+      <p class="storage-note"><span class="storage-lock" aria-hidden="true">◈</span> Your tasks are saved on this device</p>
+    </section>
+    <footer class="footer"><span>Made for a more mindful day <span class="footer-heart">♥</span></span><span>One thing at a time.</span></footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
