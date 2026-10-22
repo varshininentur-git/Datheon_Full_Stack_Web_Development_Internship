@@ -7,13 +7,6 @@ A simple, interactive, and responsive task management application built with HTM
 
 This project was developed as **Task 2 of my Full Stack Web Development Internship**.
 
-## 📸 Application Preview
-
-![TaskFlow Dashboard](screenshots/taskflow-dashboard.png)
-
-*TaskFlow dashboard preview*
-
-> To display your actual screenshot, save it as `taskflow-dashboard.png` inside a folder named `screenshots` in the project root. See the screenshot instructions below.
 
 ## ✨ Features
 
